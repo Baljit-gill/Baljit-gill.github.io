@@ -1,0 +1,484 @@
+/* ---------- COLORS & FONTS ---------- */
+:root {
+  --text: #333;
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: #fafafa;
+  color: var(--text);
+}
+  .glow-btn {
+    font-size:  1.5rem;
+    color: azure;
+    padding: 15px  30px;
+    margin: 10px;
+    border: 2px solid rbg(255, 0, 106);
+    border-radius: 50px;
+    background: transparent;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+  }
+  .glow-btn::before{
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height:200%;
+    background:radial-gradient( circle, rgba(255,255,255,0.3), rgba(0,255,255,0)70%);
+    transition: 0.4s;
+    transform: scale(0);
+  }
+  .glow-btn:hover{
+    color:#000;
+    background: rgb(245, 247, 247);
+    box-shadow: 0 0 15px  rbg(255, 0, 106), 0 0 60px rbg(255, 0, 106),  0 0 120px rbg(255, 0, 106);
+  }
+
+  .glow.btn:active{
+    transform: scale(0.95);
+  }
+
+ /* ---------- PROJECT GRID LAYOUT ---------- */
+#projects {
+  padding: 50px 20px;
+}
+
+#projects h2 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* grid layout for even spacing */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+/* ---------- GLOW PROJECT CARDS ---------- */
+.project {
+  padding: 25px;
+  border-radius: 20px;
+  border: 2px solid rbg(255, 0, 106);
+  background: transparent;
+  text-align: center;
+  transition: 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* glow flash (matches glow-btn) */
+.project::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.3), rgba(0,255,255,0) 70%);
+  transform: scale(0);
+  transition: 0.4s;
+}
+
+/* hover glow */
+.project:hover::before {
+  transform: scale(1);
+}
+
+.project:hover {
+  background: rbg(255, 0, 106);
+  color: #000;
+  box-shadow: 0 0 15px rbg(255, 0, 106), 0 0 40px rbg(255, 0, 106), 0 0 80px rbg(255, 0, 106);
+}
+
+/* pulsing neon animation */
+@keyframes neonPulse {
+  0% { box-shadow: 0 0 8px rbg(255, 0, 106); }
+  50% { box-shadow: 0 0 20px rbg(255, 0, 106); }
+  100% { box-shadow: 0 0 8px rbg(255, 0, 106); }
+}
+
+.project {
+  animation: neonPulse 2s infinite;
+}
+
+/* remove default blue link colour */
+.project a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.project p {
+  opacity: 0.8;
+  margin-top: 10px;
+}
+/* ----- CAROUSEL LAYOUT ----- */
+.carousel {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  display: flex;
+  padding-bottom: 20px;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  padding: 10px;
+}
+
+.project-card {
+  min-width: 260px;
+  max-width: 260px;
+
+  padding: 25px;
+  border-radius: 20px;
+  border: 2px solid rbg(255, 0, 106);
+  background: transparent;
+
+  scroll-snap-align: center;
+
+  text-align: center;
+  transition: 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+
+  animation: neonPulse 2s infinite;
+  cursor: pointer;
+}
+
+/* Neon flash on hover */
+.project-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.3),
+                                      rgba(0,255,255,0) 70%);
+  transform: scale(0);
+  transition: 0.4s;
+}
+
+.project-card:hover::before {
+  transform: scale(1);
+}
+
+.project-card:hover {
+  background: rbg(255, 0, 106);
+  color: #000;
+  box-shadow: 0 0 15px rbg(255, 0, 106), 0 0 40px rbg(255, 0, 106), 0 0 80px rbg(255, 0, 106);
+}
+
+.project-card a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.project-card p {
+  opacity: 0.8;
+  margin-top: 10px;
+}
+
+/* Neon pulse animation */
+@keyframes neonPulse {
+  0% { box-shadow: 0 0 8px rgb(255, 0, 106); }
+  50% { box-shadow: 0 0 20px rgb(255, 0, 106); }
+  100% { box-shadow: 0 0 8px rgb(255, 0, 106); }
+}
+
+/* ----- CAROUSEL ----- */
+.carousel {
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  padding: 10px;
+  will-change: transform;
+}
+
+/* ----- PROJECT CARDS ----- */
+.project-card {
+  min-width: 260px;
+  max-width: 260px;
+
+  padding: 25px;
+  border-radius: 20px;
+  border: 2px solid rgb(255, 0, 106);
+  background: transparent;
+
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: 0.3s ease-in-out;
+
+  cursor: pointer;
+  animation: neonPulse 2s infinite;
+}
+
+/* Neon flash effect */
+.project-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle,
+    rgba(255,255,255,0.3),
+    rgba(0,255,255,0) 70%
+  );
+  transform: scale(0);
+  transition: 0.4s;
+}
+
+.project-card:hover::before {
+  transform: scale(1);
+}
+
+.project-card:hover {
+  background: rgb(255, 0, 106);
+  color: #000;
+  box-shadow: 0 0 15px rgb(255, 0, 106), 0 0 40px rgb(255, 0, 106), 0 0 80px rgb(255, 0, 106);
+}
+
+.project-card h3 {
+  margin-bottom: 10px;
+}
+
+.project-card p {
+  opacity: 0.8;
+}
+
+/* Pulse glow animation */
+@keyframes neonPulse {
+  0% { box-shadow: 0 0 8px rgb(255, 0, 106); }
+  50% { box-shadow: 0 0 20px rgb(255, 0, 106); }
+  100% { box-shadow: 0 0 8px rgb(255, 0, 106); }
+}
+
+/* ---------- ABOUT SECTION ---------- */
+.about-section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.about-section h2 {
+  margin-bottom: 40px;
+  font-size: 2.4rem;
+}
+
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.about-text {
+  max-width: 500px;
+  line-height: 1.7;
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.about-text span {
+  color: rgb(161, 13, 219);
+  font-weight: bold;
+}
+
+.about-img img {
+  width: 300px;
+  height: 300px;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+/* glowing border around the image */
+.glow-border {
+  padding: 8px;
+  border-radius: 25px;
+  border: 2px solid rgb(255,0,106);
+  box-shadow: 0 0 15px rgb(255, 0, 106), 0 0 40px rgb(255, 0, 106);
+  animation: neonPulse 2s infinite;
+}
+
+/* reuse your existing neon animation */
+@keyframes neonPulse {
+  0% { box-shadow: 0 0 8px rgb(255, 0, 106); }
+  50% { box-shadow: 0 0 20px rgb(255, 0, 106); }
+  100% { box-shadow: 0 0 8px rgb(255, 0, 106); }
+}
+
+/* responsive stack for mobile */
+@media (max-width: 700px) {
+  .about-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+
+
+/* ---------- GRADIENT NAVBAR ---------- */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+
+  padding: 20px;
+
+  /* gradient background */
+  background: linear-gradient(135deg, #a18cd1, #fbc2eb);
+
+  /* smooth translucent look */
+  backdrop-filter: blur(8px);
+
+  /* slight shadow for depth */
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  transition: opacity 0.2s;
+}
+
+nav a:hover {
+  opacity: 0.8;
+}
+
+/* ---------- HEADER (now simple & clean) ---------- */
+header {
+  padding: 90px 20px;
+  text-align: center;
+  color: var(--text);
+}
+
+header h1 {
+  font-size: 3rem;
+  margin: 0 0 10px 0;
+}
+
+header p {
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
+
+
+.skills-page {
+    max-width: 900px;
+    margin: auto;
+    padding: 50px 20px;
+}
+
+.skills-page h1,
+.skills-page h2 {
+    text-align: center;
+}
+
+.experience-card {
+    margin: 20px 0;
+    padding: 20px;
+    border: 2px solid rgb(255, 0, 106);
+    border-radius: 20px;
+    box-shadow: 0 0 15px rgb(255, 0, 106);
+}
+
+section {
+    padding: 50px 20px;
+}
+
+section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.experience-card {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 25px;
+
+    border: 2px solid rgb(255, 0, 106);
+    border-radius: 20px;
+
+    box-shadow: 0 0 15px rgb(255, 0, 106);
+
+    animation: neonPulse 2s infinite;
+}
+
+.experience-card h3 {
+    margin-top: 0;
+}
+
+.experience-card:hover {
+    transform: translateY(-5px);
+    transition: 0.3s;
+}
+
+/* ---------- CERTIFICATES PAGE ---------- */
+
+.certificates-page {
+    padding: 50px 20px;
+}
+
+.certificates-page h1 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.certificates-page p {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Certificate image */
+.cert-img {
+    width: 100%;
+    max-height: 150px;
+    object-fit: contain;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+/* Certificate button */
+.cert-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+
+    border: 2px solid rgb(255, 0, 106);
+    border-radius: 30px;
+
+    color: white;
+    text-decoration: none;
+
+    transition: 0.3s ease-in-out;
+}
+
+.cert-btn:hover {
+    background: rgb(255, 0, 106);
+    box-shadow:
+        0 0 15px rgb(255, 0, 106),
+        0 0 40px rgb(255, 0, 106);
+}

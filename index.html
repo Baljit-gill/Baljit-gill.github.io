@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <h2 class="logo">My Portfolio</h2>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <h1>Hello, I'm <span>Baljit Gill</span></h1>
+    <p>An espiring software engineer</p>
+  </header>
+
+  <section id="about" class="about-section">
+  <h2>About Me</h2>
+
+  <div class="about-container">
+
+    <div class="about-text">
+      <p>
+        Hi! I'm <span>Baljit Gill</span>, a passionate Software Engineering student who loves creating 
+        games, websites, and cool interactive projects. I’ve been studying computer science 
+        since Year 10, and I’m currently studying at <strong>Nottingham Trent University</strong>.
+      </p>
+
+      <p>
+        I enjoy building things from scratch — from Pygame platformers to C language mini 
+        games to full websites like this one. My goal is to become a <strong>software engineer</strong> 
+        who creates accessible, meaningful, and creative tech.
+      </p>
+
+      <p>
+        When I'm not coding, I'm usually learning something new, experimenting with design, 
+        or working on personal projects that help me improve my skills.
+      </p>
+    </div>
+
+    <div class="about-img">
+      <div class="glow-border">
+        <img src="my-photo.jpg" alt="Picture of me">
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<div class="project-grid">
+
+    <div class="project-card">
+        <a href="skills.html">
+        <h3>Skills & Experience</h3>
+        <p>View my technical skills, work experience, and leadership roles.</p>
+    </a>
+    </div>
+
+    <div class="project-card">
+        <a href="hobbies.html">
+        <h3>Hobbies & Interests</h3>
+        <p>Discover my interests outside of software engineering.</p>
+    </a>
+    </div>
+
+    <div class="project-card">
+      <a href="certificates.html">
+        <h3>Certificates & Achievements</h3>
+        <p>View my certifications, virtual experiences, and professional development achievements.</p>
+    </a>
+    </div>
+
+</div>
+
+  <!--projects-->
+  <<section id="projects">
+  <h2>My Projects</h2>
+
+  <div class="carousel" id="projectCarousel">
+    <div class="carousel-track">
+
+      <div class="project-card" data-link="cave-adventures.html">
+        <h3>Cave Adventures</h3>
+        <p>A Pygame platformer where players explore caves, collect keys, and unlock doors.</p>
+      </div>
+
+      <div class="project-card" data-link="c-mini-projects.html">
+        <h3>C Language Mini Projects</h3>
+        <p>Console-based C programs showcasing logic, loops, and randomisation.</p>
+      </div>
+
+      <div class="project-card" data-link="rock-paper-scissors.html">
+        <h3>Rock Paper Scissors</h3>
+        <p>A fun 5-round game against the computer.</p>
+      </div>
+
+      <div class="project-card" data-link="html-portfolio.html">
+        <h3>HTML Portfolio</h3>
+        <p>I taught myself HTML to build this website.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <p>Email: Baljitk_gill06@outlook.com</p>
+    <p>GitHub: <a href="https://github.com/Baljit-gill">Baljit-gill</a></p>
+  </section>
+
+  <script>
+  const track = document.querySelector(".carousel-track");
+  let cards = Array.from(track.children);
+
+  // Duplicate cards for seamless infinite loop
+  cards.forEach(card => {
+    const clone = card.cloneNode(true);
+    track.appendChild(clone);
+  });
+
+  let scrollSpeed = 1; // speed of auto-scroll
+  let position = 0;
+
+  function autoScroll() {
+    position -= scrollSpeed;
+    track.style.transform = `translateX(${position}px)`;
+
+    // Reset when reaching halfway (because cards were duplicated)
+    if (Math.abs(position) >= track.scrollWidth / 2) {
+      position = 0;
+    }
+
+    requestAnimationFrame(autoScroll);
+  }
+
+  autoScroll();
+
+  // Make cards clickable
+  document.querySelectorAll(".project-card").forEach(card => {
+    card.addEventListener("click", () => {
+      const link = card.getAttribute("data-link");
+      if (link) {
+        window.location.href = link;
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
+
+
