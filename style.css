@@ -166,6 +166,7 @@ body {
                                       rgba(0,255,255,0) 70%);
   transform: scale(0);
   transition: 0.4s;
+  pointer-events: none;
 }
 
 .project-card:hover::before {
@@ -208,6 +209,21 @@ body {
   gap: 20px;
   padding: 10px;
   will-change: transform;
+  width: max-content;
+  animation: projectCarousel 28s linear infinite;
+}
+
+#projectCarousel:hover .carousel-track {
+  animation-play-state: paused;
+}
+
+@keyframes projectCarousel {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-50% - 10px));
+  }
 }
 
 /* ----- PROJECT CARDS ----- */
@@ -243,6 +259,7 @@ body {
   );
   transform: scale(0);
   transition: 0.4s;
+  pointer-events: none;
 }
 
 .project-card:hover::before {

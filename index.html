@@ -90,24 +90,32 @@
   <div class="carousel" id="projectCarousel">
     <div class="carousel-track">
 
-      <div class="project-card" data-link="cave-adventures.html">
-        <h3>Cave Adventures</h3>
-        <p>A Pygame platformer where players explore caves, collect keys, and unlock doors.</p>
+      <div class="project-card">
+        <a href="cave-adventures.html">
+          <h3>Cave Adventures</h3>
+          <p>A Pygame platformer where players explore caves, collect keys, and unlock doors.</p>
+        </a>
       </div>
 
-      <div class="project-card" data-link="c-mini-projects.html">
-        <h3>C Language Mini Projects</h3>
-        <p>Console-based C programs showcasing logic, loops, and randomisation.</p>
+      <div class="project-card">
+        <a href="c-mini-projects.html">
+          <h3>C Language Mini Projects</h3>
+          <p>Console-based C programs showcasing logic, loops, and randomisation.</p>
+        </a>
       </div>
 
-      <div class="project-card" data-link="rock-paper-scissors.html">
-        <h3>Rock Paper Scissors</h3>
-        <p>A fun 5-round game against the computer.</p>
+      <div class="project-card">
+        <a href="rock-papers-scissors.html">
+          <h3>Rock Paper Scissors</h3>
+          <p>A fun 5-round game against the computer.</p>
+        </a>
       </div>
 
-      <div class="project-card" data-link="html-portfolio.html">
-        <h3>HTML Portfolio</h3>
-        <p>I taught myself HTML to build this website.</p>
+      <div class="project-card">
+        <a href="html-portfolio.html">
+          <h3>HTML Portfolio</h3>
+          <p>I taught myself HTML to build this website.</p>
+        </a>
       </div>
     </div>
   </div>
@@ -123,39 +131,9 @@
 
   <script>
   const track = document.querySelector(".carousel-track");
-  let cards = Array.from(track.children);
 
-  // Duplicate cards for seamless infinite loop
-  cards.forEach(card => {
-    const clone = card.cloneNode(true);
-    track.appendChild(clone);
-  });
-
-  let scrollSpeed = 1; // speed of auto-scroll
-  let position = 0;
-
-  function autoScroll() {
-    position -= scrollSpeed;
-    track.style.transform = `translateX(${position}px)`;
-
-    // Reset when reaching halfway (because cards were duplicated)
-    if (Math.abs(position) >= track.scrollWidth / 2) {
-      position = 0;
-    }
-
-    requestAnimationFrame(autoScroll);
-  }
-
-  autoScroll();
-
-  // Make cards clickable
-  document.querySelectorAll(".project-card").forEach(card => {
-    card.addEventListener("click", () => {
-      const link = card.getAttribute("data-link");
-      if (link) {
-        window.location.href = link;
-      }
-    });
+  Array.from(track.children).forEach(card => {
+    track.appendChild(card.cloneNode(true));
   });
 </script>
     
