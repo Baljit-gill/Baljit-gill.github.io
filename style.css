@@ -58,6 +58,8 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 25px;
+  justify-content: end;
+  margin-left: 30px;
 }
 
 /* ---------- GLOW PROJECT CARDS ---------- */
@@ -433,10 +435,11 @@ section h2 {
 
 .experience-card {
     max-width: 900px;
-    margin: 20px auto;
-    padding: 25px;
+    margin: 20px 0 20px 35px;
+    padding: 25px 25px 25px 18px;
 
     border: 2px solid rgb(255, 0, 106);
+    border-left: 4px solid rgb(255, 0, 106);
     border-radius: 20px;
 
     box-shadow: 0 0 15px rgb(255, 0, 106);
