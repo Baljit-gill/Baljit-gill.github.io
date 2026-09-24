@@ -505,16 +505,39 @@ section h2 {
 
 .cv-button {
   display: inline-block;
-  padding; 12px 24px;
-  background-colour: #000;
-  color: white
+  margin: 10px;
+  padding: 15px 30px;
+  border: 2px solid rgb(255, 0, 106);
+  border-radius: 50px;
+  background: transparent;
+  color: white;
   text-decoration: none;
-  border-radius: 8px;
+  font-size: 1.5rem;
   font-weight: 600;
-  transition: 0.3s ease;
+  transition: 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.cv-button::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.3), rgba(0,255,255,0) 70%);
+  transition: 0.4s;
+  transform: scale(0);
 }
 
 .cv-button:hover {
-  transform: translateY(-2px);
-  opacity: 0.85;
+  color: #000;
+  background: rgb(245, 247, 247);
+  box-shadow: 0 0 15px rgb(255, 0, 106), 0 0 60px rgb(255, 0, 106), 0 0 120px rgb(255, 0, 106);
+}
+
+.cv-button:hover::before {
+  transform: scale(1);
 }
