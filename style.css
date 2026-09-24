@@ -502,3 +502,19 @@ section h2 {
         0 0 15px rgb(255, 0, 106),
         0 0 40px rgb(255, 0, 106);
 }
+
+.cv-button {
+  display: inline-block;
+  padding; 12px 24px;
+  background-colour: #000;
+  color: white
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.cv-button:hover {
+  transform: translateY(-2px);
+  opacity: 0.85;
+}
